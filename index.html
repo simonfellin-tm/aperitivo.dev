@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>aperitivo — the AI software factory for embedded devices</title>
+<meta name="description" content="aperitivo is the AI software factory for embedded devices. Agents build the software for any device with a screen, test it in a browser twin, and ship the same build to the dev board and production.">
+<meta name="theme-color" content="#120a2a">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://aperitivo.dev/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aperitivo.dev/">
+<meta property="og:title" content="aperitivo — the AI software factory for embedded devices">
+<meta property="og:description" content="aperitivo is the AI software factory for embedded devices. Agents build the software for any device with a screen, test it in a browser twin, and ship the same build to the dev board and production.">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Righteous&amp;family=Space+Grotesk:wght@400;500;700&amp;family=VT323&amp;display=swap" rel="stylesheet">
+<style>
+/* VOICE  occasion: a sales site, loud and warm, 1986 dev-shop at sunset
+   IDEA   a Miami night poster crossed with a CRT terminal: the appliance UI built in neon
+   PICTURE striped Campari-Aperol-Prosecco sun over a neon grid, palms, an oversized spritz
+   COLOUR night violet ground, sunset gradient, hot pink + cyan neon accents
+   TYPE   Righteous wordmark and display, Space Grotesk text, VT323 terminal
+   LAYOUT full-bleed scene with title in the dark sky corner; bands below; stacks on phones */
+body{margin:0;background:#120a2a}
+a{color:#2de2e6}a:hover{color:#ff3ea5}
+*{box-sizing:border-box;min-width:0}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding:clamp(56px,7vw,112px) max(5vw,16px)}
+.h2{font-family:Righteous,"Space Grotesk",sans-serif;font-weight:400;font-size:clamp(32px,4.4vw,52px);line-height:1.05;letter-spacing:-.01em;margin:0 0 20px;text-wrap:balance;color:#fff4fb}
+.lede{font-size:18px;line-height:1.6;color:#d9c9ee;max-width:62ch;margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 26px;border-radius:999px;font-weight:700;text-decoration:none;font-size:16px}
+.btn-hot{background:#ff3ea5;color:#1a0630;box-shadow:0 0 0 2px #ff3ea5,0 0 24px rgba(255,62,165,.55)}
+.btn-hot:hover{background:#2de2e6;color:#0c0420;box-shadow:0 0 0 2px #2de2e6,0 0 24px rgba(45,226,230,.55)}
+.btn-line{border:2px solid #2de2e6;color:#2de2e6}
+.btn-line:hover{background:#2de2e6;color:#0c0420}
+.btn:focus-visible,.nav a:focus-visible{outline:3px solid #f0c040;outline-offset:3px}
+.logo{display:inline-flex;align-items:center;gap:.45em;font-family:Righteous,'Space Grotesk',sans-serif;font-weight:400;letter-spacing:.02em;line-height:1;text-decoration:none;white-space:nowrap}
+.nav a{color:#f6eefc;text-decoration:none;font-weight:500;padding:12px 4px}
+.nav a:hover{color:#ff3ea5}
+.card{background:#1e1044;border:1px solid #3b2470;border-radius:18px;padding:28px}
+.mono{font-family:VT323,ui-monospace,monospace}
+.term{position:relative;background:#07031a;border:2px solid #2de2e6;border-radius:14px;box-shadow:0 0 0 6px #1e1044,0 0 40px rgba(45,226,230,.25);overflow:hidden}
+.term::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(to bottom,rgba(255,255,255,.04) 0 1px,transparent 1px 3px)}
+.cursor{display:inline-block;width:.6em;height:1em;background:#2de2e6;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.cursor{animation:none}}
+.pipe{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:10px;align-items:center;padding:10px 14px;border-radius:10px;background:#120a2a;border:1px solid #3b2470}
+@media (max-width:860px){.pipes{grid-template-columns:minmax(0,1fr) !important}.hidecol{display:none !important}}
+@media (max-width:600px){.navlinks{display:none !important}.herotitle{font-size:40px !important}}
+</style>
+<style>html{scroll-behavior:smooth}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}</style>
+</head>
+<body>
+<div style="width: 100%; background: #120a2a; color: #f6eefc; font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 17px; line-height: 1.55; overflow-x: clip">
+
+<!-- HERO -->
+<header style="position: relative; min-height: 760px; display: flex; flex-direction: column; overflow: hidden">
+<svg aria-hidden="true" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMax slice" style="position: absolute; inset: 0; width: 100%; height: 100%">
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0c0420"/><stop offset=".45" stop-color="#2a0c55"/><stop offset=".8" stop-color="#8a1f78"/><stop offset="1" stop-color="#ff3ea5"/></linearGradient>
+<linearGradient id="sun" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0c040"/><stop offset=".55" stop-color="#f5780a"/><stop offset="1" stop-color="#e8321a"/></linearGradient>
+<linearGradient id="ground" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a0848"/><stop offset="1" stop-color="#0c0420"/></linearGradient>
+<linearGradient id="spritz" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0c040"/><stop offset=".4" stop-color="#f5780a"/><stop offset="1" stop-color="#e8321a"/></linearGradient>
+<mask id="sunmask"><rect x="0" y="0" width="1440" height="760" fill="#fff"/><rect x="0" y="352" width="1440" height="4" fill="#000"/><rect x="0" y="378" width="1440" height="6" fill="#000"/><rect x="0" y="404" width="1440" height="8" fill="#000"/><rect x="0" y="430" width="1440" height="10" fill="#000"/><rect x="0" y="456" width="1440" height="12" fill="#000"/></mask>
+<clipPath id="bowl"><path d="M-112 -392 C-118 -260 -72 -168 0 -158 C72 -168 118 -260 112 -392 Z"/></clipPath>
+<path id="frond" d="M0 0 C50 -34 112 -30 160 12 C118 -10 64 -14 0 6 Z"/>
+<g id="palm">
+<path d="M0 0 C8 -90 26 -190 14 -300" fill="none" stroke="#1a0630" stroke-width="16" stroke-linecap="round"/>
+<g transform="translate(14,-300)" fill="#1a0630">
+<use href="#frond"/><use href="#frond" transform="rotate(-38)"/><use href="#frond" transform="rotate(28)"/>
+<use href="#frond" transform="scale(-1,1)"/><use href="#frond" transform="scale(-1,1) rotate(-40)"/><use href="#frond" transform="scale(-1,1) rotate(30)"/>
+</g>
+</g>
+</defs>
+<rect width="1440" height="760" fill="url(#sky)"/>
+<g fill="#fff">
+<circle cx="120" cy="60" r="1.6" opacity=".8"/><circle cx="340" cy="140" r="1.2" opacity=".6"/><circle cx="560" cy="40" r="1.8" opacity=".9"/><circle cx="820" cy="110" r="1.3" opacity=".7"/><circle cx="1040" cy="50" r="1.6" opacity=".8"/><circle cx="1260" cy="130" r="1.2" opacity=".6"/><circle cx="1380" cy="40" r="1.5" opacity=".7"/><circle cx="700" cy="200" r="1" opacity=".5"/><circle cx="1160" cy="220" r="1" opacity=".5"/>
+</g>
+<circle cx="980" cy="440" r="220" fill="url(#sun)" mask="url(#sunmask)"/>
+<rect x="0" y="480" width="1440" height="280" fill="url(#ground)"/>
+<g stroke="#ff3ea5" stroke-width="2" opacity=".85">
+<line x1="0" y1="480" x2="1440" y2="480" stroke="#2de2e6" stroke-width="3"/>
+<line x1="0" y1="488" x2="1440" y2="488"/><line x1="0" y1="500" x2="1440" y2="500"/><line x1="0" y1="517" x2="1440" y2="517"/><line x1="0" y1="540" x2="1440" y2="540"/><line x1="0" y1="572" x2="1440" y2="572"/><line x1="0" y1="616" x2="1440" y2="616"/><line x1="0" y1="676" x2="1440" y2="676"/><line x1="0" y1="756" x2="1440" y2="756"/>
+<line x1="720" y1="480" x2="-1080" y2="760"/><line x1="720" y1="480" x2="-720" y2="760"/><line x1="720" y1="480" x2="-360" y2="760"/><line x1="720" y1="480" x2="0" y2="760"/><line x1="720" y1="480" x2="240" y2="760"/><line x1="720" y1="480" x2="480" y2="760"/><line x1="720" y1="480" x2="720" y2="760"/><line x1="720" y1="480" x2="960" y2="760"/><line x1="720" y1="480" x2="1200" y2="760"/><line x1="720" y1="480" x2="1440" y2="760"/><line x1="720" y1="480" x2="1800" y2="760"/><line x1="720" y1="480" x2="2160" y2="760"/><line x1="720" y1="480" x2="2520" y2="760"/>
+</g>
+<use href="#palm" transform="translate(770,486) scale(.55)"/>
+<use href="#palm" transform="translate(1330,560) scale(1.05)"/>
+<use href="#palm" transform="translate(1415,520) scale(.8) scale(-1,1)"/>
+<ellipse cx="1170" cy="712" rx="120" ry="16" fill="#000" opacity=".45"/>
+<g transform="translate(1170,706)">
+<ellipse cx="0" cy="0" rx="72" ry="11" fill="#2de2e6" opacity=".35" stroke="#bff8fa" stroke-width="2"/>
+<rect x="-6" y="-160" width="12" height="160" fill="#bff8fa" opacity=".45"/>
+<g clip-path="url(#bowl)">
+<rect x="-130" y="-345" width="260" height="200" fill="url(#spritz)"/>
+<rect x="-130" y="-345" width="260" height="8" fill="#ffd77a" opacity=".8"/>
+<rect x="-62" y="-318" width="46" height="46" rx="8" fill="#fff" opacity=".3" transform="rotate(-14 -40 -296)"/>
+<rect x="6" y="-300" width="50" height="50" rx="8" fill="#fff" opacity=".26" transform="rotate(18 30 -276)"/>
+<rect x="-30" y="-250" width="40" height="40" rx="7" fill="#fff" opacity=".22" transform="rotate(8 -10 -230)"/>
+<circle cx="-40" cy="-210" r="4" fill="#fff" opacity=".6"/><circle cx="20" cy="-190" r="3" fill="#fff" opacity=".6"/><circle cx="50" cy="-230" r="3.5" fill="#fff" opacity=".5"/>
+</g>
+<line x1="24" y1="-200" x2="92" y2="-470" stroke="#ff3ea5" stroke-width="9" stroke-linecap="round"/>
+<path d="M-112 -392 C-118 -260 -72 -168 0 -158 C72 -168 118 -260 112 -392" fill="none" stroke="#bff8fa" stroke-width="3" opacity=".8"/>
+<path d="M-90 -370 C-94 -290 -70 -220 -36 -190" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".45"/>
+<g transform="translate(100,-392)">
+<circle r="44" fill="#f0c040"/><circle r="38" fill="#f5780a"/>
+<g stroke="#f0c040" stroke-width="3"><line x1="-36" y1="0" x2="36" y2="0"/><line x1="0" y1="-36" x2="0" y2="36"/><line x1="-25" y1="-25" x2="25" y2="25"/><line x1="-25" y1="25" x2="25" y2="-25"/></g>
+<circle r="7" fill="#f0c040"/>
+</g>
+</g>
+</svg>
+
+<nav class="nav" aria-label="Main" style="position: relative; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: 28px max(5vw,16px); min-height: 104px">
+<a href="#top" class="logo" aria-label="aperitivo, home" style="font-size: 28px; color: #fff4fb; padding: 6px 0"><svg aria-hidden="true" width="40" height="40" viewBox="0 0 40 40" style="flex: none"><defs><linearGradient id="lg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0c040"/><stop offset=".55" stop-color="#f5780a"/><stop offset="1" stop-color="#e8321a"/></linearGradient><mask id="lm1"><rect width="40" height="40" fill="#fff"/><rect y="22" width="40" height="2" fill="#000"/><rect y="27" width="40" height="3" fill="#000"/><rect y="33" width="40" height="4" fill="#000"/></mask></defs><circle cx="20" cy="20" r="19" fill="url(#lg1)" mask="url(#lm1)"/></svg><span>aperitivo</span></a>
+<div class="navlinks" style="display: flex; gap: 28px; flex-wrap: wrap; align-items: center">
+<a href="#how">How it works</a>
+<a href="#factory">The factory</a>
+<a href="#who">Who it's for</a>
+<a href="#contact" class="btn btn-line" style="min-height: 44px; padding: 0 20px">Book a demo</a>
+</div>
+</nav>
+
+<div id="top" style="position: relative; flex: 1; display: flex; flex-direction: column; justify-content: flex-start; padding: clamp(40px,7vw,96px) max(5vw,16px) 220px; max-width: 760px">
+<h1 class="herotitle" style="font-family: Righteous, 'Space Grotesk', sans-serif; font-weight: 400; font-size: 72px; line-height: 1.02; letter-spacing: -.01em; margin: 0 0 24px; color: #fff4fb; text-shadow: 0 0 28px rgba(255,62,165,.45); text-wrap: balance">The AI software factory for embedded devices.</h1>
+<p style="font-size: 19px; line-height: 1.55; color: #ecdcf7; margin: 0 0 32px; max-width: 34em">aperitivo gives AI agents a complete embedded toolchain plus your spec, and lets them build the software for any device with a screen. They test their own work in a browser twin, then the same build runs on the dev board and in production.</p>
+<div style="display: flex; gap: 14px; flex-wrap: wrap">
+<a href="#contact" class="btn btn-hot">Book a demo</a>
+<a href="#how" class="btn btn-line">See how it works</a>
+</div>
+</div>
+</header>
+
+<!-- PROBLEM -->
+<section class="band" style="background: #120a2a">
+<div class="wrap" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(32px,5vw,72px); align-items: start">
+<div>
+<h2 class="h2">AI writes web apps in minutes. Embedded still takes months.</h2>
+<p class="lede">Thermostats, e-bikes, lab instruments, factory panels, coffee machines: every device with a screen is still built by hand. Agents could do much of the work, but on embedded they're coding blind. They can't run what they write, and nobody sees the real thing until hardware arrives.</p>
+</div>
+<div style="display: grid; gap: 14px">
+<div class="card" style="display: flex; gap: 18px; align-items: flex-start"><span class="mono" style="font-size: 30px; line-height: 1; color: #ff3ea5">&gt;_</span><div><strong style="display: block; font-size: 18px; margin-bottom: 4px">Agents can't check their work</strong><span style="color: #cdbbe6">Without a way to run and test code off the hardware, AI output on embedded is a guess.</span></div></div>
+<div class="card" style="display: flex; gap: 18px; align-items: flex-start"><span class="mono" style="font-size: 30px; line-height: 1; color: #f5780a">[ ]</span><div><strong style="display: block; font-size: 18px; margin-bottom: 4px">Software waits for hardware</strong><span style="color: #cdbbe6">Product and design teams can't try the real interface until boards exist, and every change needs a firmware cycle.</span></div></div>
+<div class="card" style="display: flex; gap: 18px; align-items: flex-start"><span class="mono" style="font-size: 30px; line-height: 1; color: #2de2e6">!!</span><div><strong style="display: block; font-size: 18px; margin-bottom: 4px">One bug, whole device</strong><span style="color: #cdbbe6">When app code shares memory with drivers, a crash on screen can take the whole device down.</span></div></div>
+</div>
+</div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" class="band" style="background: #1a0d3a; border-top: 2px solid #ff3ea5">
+<div class="wrap">
+<h2 class="h2" style="position: relative">Spec &amp; Design in. Working device out.</h2>
+<p class="lede" style="margin-bottom: 44px">The factory compiles device software to a WebAssembly container that doesn't care which hardware it's on. That gives agents a closed loop: build, run, check against the spec, fix, repeat. All of it happens before anything is flashed to a board.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; align-items: stretch">
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; gap: 14px">
+<li class="card" style="display: flex; gap: 18px"><span class="mono" style="font-size: 40px; line-height: .9; color: #f0c040; flex: none; width: 1.2em">1</span><div><strong style="display: block; font-size: 19px">Write the spec</strong><span style="color: #cdbbe6">Requirements, use cases and the signals your hardware exposes. Bring the PDF specs you already have. The spec stays the source of truth.</span></div></li>
+<li class="card" style="display: flex; gap: 18px"><span class="mono" style="font-size: 40px; line-height: .9; color: #f5780a; flex: none; width: 1.2em">2</span><div><strong style="display: block; font-size: 19px">Agents build it</strong><span style="color: #cdbbe6">AI agents write the screens, logic and hardware bindings with full context of the embedded stack and your spec.</span></div></li>
+<li class="card" style="display: flex; gap: 18px"><span class="mono" style="font-size: 40px; line-height: .9; color: #ff3ea5; flex: none; width: 1.2em">3</span><div><strong style="display: block; font-size: 19px">Verify in the twin</strong><span style="color: #cdbbe6">The build runs in a browser twin. Agents test it against every requirement, and your team clicks through the real device on day one.</span></div></li>
+<li class="card" style="display: flex; gap: 18px"><span class="mono" style="font-size: 40px; line-height: .9; color: #2de2e6; flex: none; width: 1.2em">4</span><div><strong style="display: block; font-size: 19px">Ship to the device</strong><span style="color: #cdbbe6">Drop the unchanged container onto the dev board, then into production.</span></div></li>
+</ol>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div class="term" style="flex: 1; display: flex; flex-direction: column">
+<div style="display: flex; gap: 8px; align-items: center; padding: 12px 16px; border-bottom: 1px solid #2de2e6; background: #12082e">
+<span style="width: 12px; height: 12px; border-radius: 50%; background: #e8321a"></span><span style="width: 12px; height: 12px; border-radius: 50%; background: #f5780a"></span><span style="width: 12px; height: 12px; border-radius: 50%; background: #f0c040"></span>
+<span class="mono" style="margin-left: 10px; color: #a990cf; font-size: 18px">aperitivo — zsh</span>
+</div>
+<pre class="mono" style="margin: 0; padding: 20px 22px; font-size: 21px; line-height: 1.35; color: #d8fbfc; white-space: pre-wrap; overflow-wrap: anywhere; flex: 1"><span style="color: #ff3ea5">$</span> aperitivo build --spec thermostat-t4/spec.md
+<span style="color: #f0c040">›</span> reading spec ............ 38 requirements
+<span style="color: #f0c040">›</span> agents: screens, logic, bindings
+<span style="color: #f0c040">›</span> compiling (ui → wasm)      <span style="color: #6dfc9a">ok</span>
+<span style="color: #f0c040">›</span> binding pipes
+    sensor.temperature   → f32
+    setpoint.target      ← f32
+    schedule.active      ← enum
+<span style="color: #f0c040">›</span> testing in twin ...... 36/38 passed
+<span style="color: #f0c040">›</span> agents fixing 2 failures   <span style="color: #6dfc9a">ok</span>
+<span style="color: #f0c040">›</span> testing in twin ...... 38/38 passed
+<span style="color: #f0c040">›</span> flashing dev board (STM32) <span style="color: #6dfc9a">ok</span>
+<span style="color: #ff3ea5">$</span> <span class="cursor"></span></pre>
+</div>
+<span style="font-size: 13px; color: #a990cf">Sample session, for illustration.</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FACTORY -->
+<section id="factory" class="band" style="background: #120a2a; border-top: 2px solid #2de2e6">
+<div class="wrap">
+<h2 class="h2">What's inside the factory.</h2>
+<p class="lede" style="margin-bottom: 44px">A general coding agent knows a bit about everything. The factory gives it what it needs to ship a real device: the right stack, the right context, and a way to prove the result works.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
+<div class="card" style="display: flex; flex-direction: column; gap: 8px"><span class="mono" style="font-size: 26px; color: #ff3ea5">stack/</span><strong style="font-size: 19px">A proven embedded stack</strong><span style="color: #cdbbe6">A real-time OS for the hardware, a graphics layer for the screen and a WebAssembly runtime for a safe app layer, chosen and wired together for you.</span></div>
+<div class="card" style="display: flex; flex-direction: column; gap: 8px"><span class="mono" style="font-size: 26px; color: #f5780a">context/</span><strong style="font-size: 19px">Context agents can use</strong><span style="color: #cdbbe6">APIs, patterns and constraints of the stack, packaged so agents build the way an experienced embedded team would.</span></div>
+<div class="card" style="display: flex; flex-direction: column; gap: 8px"><span class="mono" style="font-size: 26px; color: #f0c040">spec/</span><strong style="font-size: 19px">The spec as the map</strong><span style="color: #cdbbe6">Start from the whole product and zoom in. Every requirement is traceable to the code and the tests that cover it.</span></div>
+<div class="card" style="display: flex; flex-direction: column; gap: 8px"><span class="mono" style="font-size: 26px; color: #2de2e6">twin/</span><strong style="font-size: 19px">A twin to test against</strong><span style="color: #cdbbe6">The real build, running in a browser with simulated signals, so agents and people can check behaviour without hardware.</span></div>
+</div>
+</div>
+</section>
+
+<!-- PIPES -->
+<section id="pipes" class="band" style="background: #1a0d3a">
+<div class="wrap">
+<h2 class="h2">One clean line between software and hardware.</h2>
+<p class="lede" style="margin-bottom: 44px">The factory builds the app container. You own the C connectors and drivers. In between sits a standard schema of named values, the pipe. Agents build against it, and it's the reason the twin behaves exactly like the device.</p>
+<div class="pipes" style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.3fr) minmax(0,1fr); gap: 20px; align-items: stretch">
+<div class="card" style="border-color: #ff3ea5; box-shadow: 0 0 30px rgba(255,62,165,.18); display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 14px; color: #ff3ea5; font-weight: 700">Built by the factory</span>
+<strong style="font-family: Righteous, sans-serif; font-weight: 400; font-size: 28px; line-height: 1.1">App container</strong>
+<span style="color: #cdbbe6">Screens and logic compiled to WebAssembly and running sandboxed on the device. Generated, tested and updated without touching your firmware.</span>
+</div>
+<div style="display: flex; flex-direction: column; justify-content: center; gap: 10px">
+<div class="pipe mono" style="font-size: 22px"><span style="color: #f0c040">sensor.temperature</span><span style="color: #2de2e6">◀──</span><span style="text-align: right; color: #d8fbfc">f32</span></div>
+<div class="pipe mono" style="font-size: 22px"><span style="color: #f0c040">motor.speed</span><span style="color: #ff3ea5">──▶</span><span style="text-align: right; color: #d8fbfc">u16</span></div>
+<div class="pipe mono" style="font-size: 22px"><span style="color: #f0c040">battery.level</span><span style="color: #2de2e6">◀──</span><span style="text-align: right; color: #d8fbfc">u8</span></div>
+<div class="pipe mono" style="font-size: 22px"><span style="color: #f0c040">mode.selected</span><span style="color: #ff3ea5">──▶</span><span style="text-align: right; color: #d8fbfc">enum</span></div>
+<div class="pipe mono" style="font-size: 22px"><span style="color: #f0c040">button.pressed</span><span style="color: #2de2e6">◀──</span><span style="text-align: right; color: #d8fbfc">bool</span></div>
+<span style="font-size: 14px; color: #a990cf; text-align: center">Pink flows to the hardware, cyan flows to the screen.</span>
+</div>
+<div class="card" style="border-color: #2de2e6; box-shadow: 0 0 30px rgba(45,226,230,.15); display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 14px; color: #2de2e6; font-weight: 700">Owned by you</span>
+<strong style="font-family: Righteous, sans-serif; font-weight: 400; font-size: 28px; line-height: 1.1">Connectors &amp; drivers</strong>
+<span style="color: #cdbbe6">Your C code: motors, heaters, sensors, the command bus. Your embedded team keeps full control.</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- THREE PLACES -->
+<section class="band" style="background: #120a2a">
+<div class="wrap">
+<h2 class="h2">Same container. Three places.</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 28px">
+<div class="card">
+<svg aria-hidden="true" width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#ff3ea5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="10" width="52" height="40" rx="4"/><line x1="6" y1="20" x2="58" y2="20"/><circle cx="13" cy="15" r="1"/><circle cx="19" cy="15" r="1"/><rect x="18" y="27" width="28" height="16" rx="2"/></svg>
+<h3 style="font-family: Righteous, sans-serif; font-weight: 400; font-size: 26px; margin: 14px 0 6px">Browser twin</h3>
+<p style="margin: 0; color: #cdbbe6">Where agents test their work, and where your team reviews and shares the real device from a link, long before hardware exists.</p>
+</div>
+<div class="card">
+<svg aria-hidden="true" width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#f5780a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="12" width="48" height="40" rx="3"/><rect x="24" y="24" width="16" height="16" rx="1"/><line x1="28" y1="24" x2="28" y2="18"/><line x1="36" y1="24" x2="36" y2="18"/><line x1="28" y1="40" x2="28" y2="46"/><line x1="36" y1="40" x2="36" y2="46"/><circle cx="15" cy="19" r="2"/></svg>
+<h3 style="font-family: Righteous, sans-serif; font-weight: 400; font-size: 26px; margin: 14px 0 6px">Dev board</h3>
+<p style="margin: 0; color: #cdbbe6">Flash it onto a small MCU and run it against real or simulated signals.</p>
+</div>
+<div class="card">
+<svg aria-hidden="true" width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#2de2e6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="8" width="44" height="48" rx="8"/><rect x="17" y="15" width="30" height="22" rx="2"/><circle cx="24" cy="46" r="3"/><circle cx="40" cy="46" r="3"/></svg>
+<h3 style="font-family: Righteous, sans-serif; font-weight: 400; font-size: 26px; margin: 14px 0 6px">Production</h3>
+<p style="margin: 0; color: #cdbbe6">The identical container ships in the device. What you approved is what customers get.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- WHY WASM -->
+<section class="band" style="background: #1a0d3a">
+<div class="wrap" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(32px,5vw,72px); align-items: start">
+<div>
+<h2 class="h2">Why WebAssembly on the device?</h2>
+<p class="lede">We first built this architecture inside the HQ of a global appliance maker in 2024. Drivers were in C, and everything on screen ran in a WebAssembly runtime, because a screen should never be able to crash the machine. It also turned out to be exactly what AI agents need: a safe box they can build, run and test on their own.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px">
+<div class="card" style="padding: 22px"><strong style="display: block; color: #ff3ea5; font-size: 18px; margin-bottom: 4px">Crash-safe</strong><span style="color: #cdbbe6">The app runs sandboxed. If it fails, the drivers keep running.</span></div>
+<div class="card" style="padding: 22px"><strong style="display: block; color: #f5780a; font-size: 18px; margin-bottom: 4px">Safe for AI-written code</strong><span style="color: #cdbbe6">The runtime manages memory, so generated code can't reach anything it shouldn't.</span></div>
+<div class="card" style="padding: 22px"><strong style="display: block; color: #f0c040; font-size: 18px; margin-bottom: 4px">Hardware-agnostic</strong><span style="color: #cdbbe6">One binary for browser, board and product, across chip families.</span></div>
+<div class="card" style="padding: 22px"><strong style="display: block; color: #2de2e6; font-size: 18px; margin-bottom: 4px">Independent updates</strong><span style="color: #cdbbe6">Ship a new app container without reflashing or retesting your drivers.</span></div>
+</div>
+</div>
+</section>
+
+<!-- WHO -->
+<section id="who" class="band" style="background: linear-gradient(180deg, #1a0d3a 0%, #2a0c55 100%)">
+<div class="wrap">
+<h2 class="h2">Any device with a screen.</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px">
+<span class="mono" style="font-size: 22px; padding: 6px 16px; border: 1px solid #ff3ea5; border-radius: 999px; color: #ffd0ea">Home appliances</span>
+<span class="mono" style="font-size: 22px; padding: 6px 16px; border: 1px solid #f5780a; border-radius: 999px; color: #ffe0c2">Industrial HMIs</span>
+<span class="mono" style="font-size: 22px; padding: 6px 16px; border: 1px solid #f0c040; border-radius: 999px; color: #fff0c4">E-mobility</span>
+<span class="mono" style="font-size: 22px; padding: 6px 16px; border: 1px solid #2de2e6; border-radius: 999px; color: #c8fbfc">Medical &amp; lab</span>
+<span class="mono" style="font-size: 22px; padding: 6px 16px; border: 1px solid #ff3ea5; border-radius: 999px; color: #ffd0ea">Smart home</span>
+<span class="mono" style="font-size: 22px; padding: 6px 16px; border: 1px solid #f5780a; border-radius: 999px; color: #ffe0c2">Fitness gear</span>
+<span class="mono" style="font-size: 22px; padding: 6px 16px; border: 1px solid #f0c040; border-radius: 999px; color: #fff0c4">Vending &amp; kiosks</span>
+<span class="mono" style="font-size: 22px; padding: 6px 16px; border: 1px solid #2de2e6; border-radius: 999px; color: #c8fbfc">Automotive accessories</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 28px">
+<div class="card" style="padding: 34px; background: #1e1044">
+<h3 style="font-family: Righteous, sans-serif; font-weight: 400; font-size: 32px; margin: 0 0 12px; color: #fff4fb">Device makers</h3>
+<p style="margin: 0 0 16px; color: #ddcdf0">Product and design teams get working device software they can change themselves, without waiting for a firmware cycle. Embedded teams stay focused on drivers and hardware.</p>
+<ul style="margin: 0; padding-left: 20px; color: #cdbbe6; display: grid; gap: 6px">
+<li>Start from your existing requirements</li>
+<li>See the whole product, then zoom into detail</li>
+<li>Keep ownership of everything below the pipe</li>
+</ul>
+</div>
+<div class="card" style="padding: 34px; background: #1e1044">
+<h3 style="font-family: Righteous, sans-serif; font-weight: 400; font-size: 32px; margin: 0 0 12px; color: #fff4fb">Microchip makers</h3>
+<p style="margin: 0 0 16px; color: #ddcdf0">Ship your MCU with an AI-ready software factory, so customers get from evaluation board to a working product on your silicon far sooner.</p>
+<ul style="margin: 0; padding-left: 20px; color: #cdbbe6; display: grid; gap: 6px">
+<li>Agent-ready support for your dev kits</li>
+<li>A faster route from evaluation to design win</li>
+<li>Fits the toolchains your customers already use</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- NAME / CTA -->
+<section id="contact" style="position: relative; overflow: hidden; background: linear-gradient(180deg, #2a0c55 0%, #8a1f78 55%, #e8321a 100%); padding: clamp(72px,9vw,140px) max(5vw,16px)">
+<svg aria-hidden="true" viewBox="0 0 400 400" style="position: absolute; right: -60px; bottom: -120px; width: 520px; height: 520px; opacity: .35">
+<circle cx="200" cy="200" r="190" fill="#f0c040"/>
+<rect x="0" y="220" width="400" height="8" fill="#e8321a"/><rect x="0" y="250" width="400" height="12" fill="#e8321a"/><rect x="0" y="284" width="400" height="16" fill="#e8321a"/><rect x="0" y="322" width="400" height="20" fill="#e8321a"/>
+</svg>
+<div class="wrap" style="position: relative">
+<p class="logo" style="font-size: 30px; margin: 0 0 28px; color: #fff4fb"><svg aria-hidden="true" width="44" height="44" viewBox="0 0 40 40" style="flex: none"><defs><linearGradient id="lg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0c040"/><stop offset=".55" stop-color="#f5780a"/><stop offset="1" stop-color="#e8321a"/></linearGradient><mask id="lm2"><rect width="40" height="40" fill="#fff"/><rect y="22" width="40" height="2" fill="#000"/><rect y="27" width="40" height="3" fill="#000"/><rect y="33" width="40" height="4" fill="#000"/></mask></defs><circle cx="20" cy="20" r="19" fill="url(#lg2)" mask="url(#lm2)"/></svg><span>aperitivo</span></p>
+<h2 class="h2" style="font-size: clamp(36px,5.4vw,64px); max-width: 14em; color: #fff">Time reclaimed. Let's talk over an aperitivo.</h2>
+<p class="lede" style="color: #ffe9f4; margin-bottom: 32px; max-width: 40em">In Italy, aperitivo is the hour between work and dinner. We named the company after it because that's what the factory gives back: the time your team spends hand-building device software, returned to work on the product itself. Tell us about the device you're building next.</p>
+<div style="display: flex; gap: 14px; flex-wrap: wrap; align-items: center">
+<a href="mailto:hello@aperitivo.dev?subject=Demo%20request" class="btn btn-hot" style="background: #fff4fb; color: #1a0630; box-shadow: none">Book a demo</a>
+<span style="color: #fff4fb; font-weight: 500">or write to <a href="mailto:hello@aperitivo.dev" style="color: #fff4fb">hello@aperitivo.dev</a></span>
+</div>
+</div>
+</section>
+
+<footer style="background: #0c0420; padding: 40px max(5vw,16px); border-top: 2px solid #2de2e6">
+<div class="wrap" style="display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap">
+<span class="logo" style="font-size: 22px; color: #f6eefc"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 40 40" style="flex: none"><defs><linearGradient id="lg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0c040"/><stop offset=".55" stop-color="#f5780a"/><stop offset="1" stop-color="#e8321a"/></linearGradient><mask id="lm3"><rect width="40" height="40" fill="#fff"/><rect y="22" width="40" height="2" fill="#000"/><rect y="27" width="40" height="3" fill="#000"/><rect y="33" width="40" height="4" fill="#000"/></mask></defs><circle cx="20" cy="20" r="19" fill="url(#lg3)" mask="url(#lm3)"/></svg><span>aperitivo</span></span>
+<span class="mono" style="font-size: 20px; color: #a990cf">Built in Sweden</span>
+<nav aria-label="Footer" style="display: flex; gap: 20px; flex-wrap: wrap"><a href="#how" style="padding: 10px 0">How it works</a><a href="#factory" style="padding: 10px 0">The factory</a><a href="#contact" style="padding: 10px 0">Contact</a></nav>
+</div>
+</footer>
+
+</div>
+</body>
+</html>
